@@ -1,9 +1,19 @@
 {
-    "version": 2,
     "builds": [
-        {"src": "app.py", "use": "@vercel/python"}
+      {
+        "src": "app.py",
+        "use": "@vercel/python"
+      }
     ],
-    "routes": [
-        {"src": "/(.*)", "dest": "app.py"}
-    ]
-}
+    "build": {
+      "env": {
+        "LDFLAGS": "-L/usr/local/opt/mysql-client/lib",
+        "CPPFLAGS": "-I/usr/local/opt/mysql-client/include",
+        "PKG_CONFIG_PATH": "/usr/local/lib/pkgconfig:/usr/lib/pkgconfig:/usr/local/opt/lib/pkgconfig"
+      }
+    },
+    "hooks": {
+    "build": "sh install_mysql_dependencies.sh"
+  }
+  }
+  
