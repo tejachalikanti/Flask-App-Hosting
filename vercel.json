@@ -11,9 +11,6 @@
         "CPPFLAGS": "-I/usr/local/opt/mysql-client/include",
         "PKG_CONFIG_PATH": "/usr/local/lib/pkgconfig:/usr/lib/pkgconfig:/usr/local/opt/lib/pkgconfig"
       }
-    },
-    "hooks": {
-    "build": "sh install_mysql_dependencies.sh"
-  }
+    }
   }
   
